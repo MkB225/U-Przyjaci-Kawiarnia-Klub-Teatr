@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>U Przyjaciół | Kawiarnia • Klub • Teatr</title>
+
+  <meta
+    name="description"
+    content="U Przyjaciół – kawiarnia, klub i teatr w Poznaniu. Spotkania, wydarzenia i wyjątkowa atmosfera."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f7f1e8;
+      color: #2b211d;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAV */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 18px 7%;
+
+      background: rgba(35, 24, 20, 0.96);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid #55423a;
+    }
+
+    .logo {
+      color: white;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #d9a85c;
+    }
+
+    .nav-button {
+      background: #d9a85c;
+      color: #281d18;
+
+      padding: 10px 18px;
+      border-radius: 6px;
+
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+
+      transition: 0.2s;
+    }
+
+    .nav-button:hover {
+      background: #edc47e;
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      padding: 140px 7% 90px;
+
+      position: relative;
+      overflow: hidden;
+
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(217, 168, 92, 0.18),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #211815,
+          #46342b
+        );
+    }
+
+    .hero-content {
+      max-width: 850px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-block;
+
+      color: #e3b66e;
+
+      border: 1px solid #d9a85c;
+
+      padding: 7px 15px;
+
+      border-radius: 30px;
+
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 900;
+
+      margin-bottom: 20px;
+
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 88px);
+
+      line-height: 0.95;
+
+      margin-bottom: 28px;
+
+      font-weight: 900;
+    }
+
+    h1 span {
+      color: #d9a85c;
+    }
+
+    .hero p {
+      color: #d8ccc5;
+
+      font-size: 20px;
+
+      max-width: 700px;
+
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 15px 25px;
+
+      border-radius: 6px;
+
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #d9a85c;
+      color: #281d18;
+
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #edc47e;
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      border: 1px solid #766158;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      border-color: #d9a85c;
+      transform: translateY(-3px);
+    }
+
+    /* DECORATION */
+
+    .circle {
+      position: absolute;
+
+      right: 8%;
+      bottom: -130px;
+
+      width: 500px;
+      height: 500px;
+
+      border: 80px solid rgba(217, 168, 92, 0.06);
+
+      border-radius: 50%;
+    }
+
+    .circle::after {
+      content: "☕";
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      font-size: 120px;
+
+      opacity: 0.12;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title small {
+      color: #a67835;
+
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: 43px;
+      margin-top: 8px;
+    }
+
+    .section-title p {
+      color: #756961;
+      margin-top: 10px;
+    }
+
+    /* OFFER */
+
+    .offer {
+      background: #30231e;
+      color: white;
+    }
+
+    .offer .section-title p {
+      color: #c5b8b0;
+    }
+
+    .offer-grid {
+      max-width: 1100px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .offer-box {
+      background: #3d2e27;
+
+      border: 1px solid #58453b;
+
+      border-radius: 14px;
+
+      padding: 32px;
+
+      transition: 0.25s;
+    }
+
+    .offer-box:hover {
+      transform: translateY(-6px);
+      border-color: #d9a85c;
+    }
+
+    .icon {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .offer-box h3 {
+      margin-bottom: 8px;
+    }
+
+    .offer-box p {
+      color: #c5b8b0;
+      font-size: 15px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      max-width: 1100px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 22px;
+    }
+
+    .about-box {
+      background: white;
+
+      border: 1px solid #e1d7cc;
+
+      border-radius: 14px;
+
+      padding: 35px;
+
+      box-shadow: 0 10px 30px rgba(60, 40, 30, 0.05);
+    }
+
+    .about-box h3 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .about-box p {
+      color: #70645d;
+    }
+
+    /* EVENTS */
+
+    .events {
+      max-width: 1100px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .event {
+      background: white;
+
+      border: 1px solid #e1d7cc;
+
+      border-radius: 14px;
+
+      padding: 28px;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .event-date {
+      display: inline-block;
+
+      background: #d9a85c;
+      color: #281d18;
+
+      padding: 6px 12px;
+
+      border-radius: 20px;
+
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 900;
+
+      margin-bottom: 15px;
+    }
+
+    .event h3 {
+      margin-bottom: 8px;
+    }
+
+    .event p {
+      color: #746961;
+      font-size: 15px;
+    }
+
+    /* FEATURES */
+
+    .features {
+      max-width: 1100px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .feature {
+      background: white;
+
+      border: 1px solid #e1d7cc;
+
+      border-radius: 12px;
+
+      padding: 28px 15px;
+
+      text-align: center;
+    }
+
+    .feature strong {
+      display: block;
+
+      font-size: 18px;
+
+      margin-bottom: 7px;
+    }
+
+    .feature p {
+      color: #766b64;
+
+      font-size: 14px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+
+      background: #d9a85c;
+
+      color: #281d18;
+    }
+
+    .contact h2 {
+      font-size: 46px;
+      margin-bottom: 12px;
+    }
+
+    .contact p {
+      margin-bottom: 20px;
+    }
+
+    .phone {
+      display: block;
+
+      font-size: clamp(30px, 5vw, 55px);
+
+      font-weight: 900;
+
+      margin-bottom: 25px;
+    }
+
+    .contact-button {
+      display: inline-block;
+
+      background: #281d18;
+      color: white;
+
+      padding: 15px 25px;
+
+      border-radius: 6px;
+
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+
+      transition: 0.2s;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-3px);
+      background: #17100d;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 7%;
+
+      text-align: center;
+
+      background: #1c1411;
+
+      color: #887a72;
+
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        padding: 15px 5%;
+      }
+
+      .logo {
+        font-size: 15px;
+      }
+
+      .nav-button {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 120px 6% 70px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 70px 6%;
+      }
+
+      .offer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .events {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 34px;
+      }
+
+      .contact h2 {
+        font-size: 35px;
+      }
+
+      .circle {
+        width: 350px;
+        height: 350px;
+
+        right: -150px;
+        bottom: -80px;
+
+        border-width: 55px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+
+    <div class="logo">
+      U <span>PRZYJACIÓŁ</span>
+    </div>
+
+    <a
+      class="nav-button"
+      href="tel:+48618516795"
+    >
+      📞 KONTAKT
+    </a>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="badge">
+        ☕ Kawiarnia • Klub • Teatr
+      </div>
+
+      <h1>
+        Miejsce,
+        <br>
+        <span>do którego się wraca.</span>
+      </h1>
+
+      <p>
+        Spotkaj się z przyjaciółmi, wypij dobrą kawę,
+        spędź wieczór w wyjątkowej atmosferze albo
+        zobacz ciekawe wydarzenie.
+      </p>
+
+      <div class="buttons">
+
+        <a
+          class="btn btn-primary"
+          href="#kontakt"
+        >
+          📍 ODWIEDŹ NAS
+        </a>
+
+        <a
+          class="btn btn-secondary"
+          href="#wydarzenia"
+        >
+          🎭 ZOBACZ WYDARZENIA
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="circle"></div>
+
+  </header>
+
+
+  <!-- OFFER -->
+
+  <section class="offer">
+
+    <div class="section-title">
+
+      <small>U Przyjaciół</small>
+
+      <h2>Więcej niż kawiarnia</h2>
+
+      <p>
+        Miejsce spotkań, kultury i dobrego klimatu.
+      </p>
+
+    </div>
+
+
+    <div class="offer-grid">
+
+      <div class="offer-box">
+
+        <div class="icon">
+          ☕
+        </div>
+
+        <h3>Kawiarnia</h3>
+
+        <p>
+          Idealne miejsce na spokojną kawę,
+          rozmowę ze znajomymi lub chwilę odpoczynku.
+        </p>
+
+      </div>
+
+
+      <div class="offer-box">
+
+        <div class="icon">
+          🎭
+        </div>
+
+        <h3>Teatr</h3>
+
+        <p>
+          Kameralna atmosfera i wydarzenia
+          dla osób, które lubią kulturę.
+        </p>
+
+      </div>
+
+
+      <div class="offer-box">
+
+        <div class="icon">
+          🍷
+        </div>
+
+        <h3>Wieczorne spotkania</h3>
+
+        <p>
+          Miejsce na spotkanie ze znajomymi
+          i spędzenie wspólnego wieczoru.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section>
+
+    <div class="section-title">
+
+      <small>O miejscu</small>
+
+      <h2>Spotkajmy się u Przyjaciół</h2>
+
+      <p>
+        Kameralna przestrzeń w samym Poznaniu.
+      </p>
+
+    </div>
+
+
+    <div class="about">
+
+      <div class="about-box">
+
+        <h3>☕ Na kawę</h3>
+
+        <p>
+          Wpadnij na kawę, rozmowę lub spokojne
+          popołudnie. To miejsce stworzone
+          do spotkań i odpoczynku.
+        </p>
+
+      </div>
+
+
+      <div class="about-box">
+
+        <h3>🎭 Na kulturę</h3>
+
+        <p>
+          Zajrzyj do nas również wtedy,
+          gdy szukasz ciekawych wydarzeń
+          i kulturalnych spotkań.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EVENTS -->
+
+  <section id="wydarzenia">
+
+    <div class="section-title">
+
+      <small>Wydarzenia</small>
+
+      <h2>Co się u nas dzieje?</h2>
+
+      <p>
+        Przykładowa sekcja wydarzeń — można ją później
+        uzupełniać aktualnymi terminami.
+      </p>
+
+    </div>
+
+
+    <div class="events">
+
+      <div class="event">
+
+        <span class="event-date">
+          WYDARZENIE
+        </span>
+
+        <h3>Wieczór teatralny</h3>
+
+        <p>
+          Kameralne przedstawienie
+          w wyjątkowej atmosferze.
+        </p>
+
+      </div>
+
+
+      <div class="event">
+
+        <span class="event-date">
+          SPOTKANIE
+        </span>
+
+        <h3>Wieczór ze znajomymi</h3>
+
+        <p>
+          Dobry klimat, rozmowy
+          i wspólnie spędzony czas.
+        </p>
+
+      </div>
+
+
+      <div class="event">
+
+        <span class="event-date">
+          KULTURA
+        </span>
+
+        <h3>Wieczór artystyczny</h3>
+
+        <p>
+          Spotkanie z kulturą,
+          sztuką i lokalnymi twórcami.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+
+  <section>
+
+    <div class="section-title">
+
+      <small>Znajdziesz nas</small>
+
+      <h2>U Przyjaciół</h2>
+
+    </div>
+
+
+    <div class="features">
+
+      <div class="feature">
+
+        <strong>☕ Kawiarnia</strong>
+
+        <p>
+          Kawa i spotkania.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <strong>🎭 Teatr</strong>
+
+        <p>
+          Kultura i wydarzenia.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <strong>📍 Poznań</strong>
+
+        <p>
+          Mielżyńskiego 27/29
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <strong>📞 Kontakt</strong>
+
+        <p>
+          61 851 67 95
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section
+    class="contact"
+    id="kontakt"
+  >
+
+    <h2>
+      Wpadnij do nas!
+    </h2>
+
+    <p>
+      Zadzwoń lub odwiedź U Przyjaciół w Poznaniu.
+    </p>
+
+    <a
+      class="phone"
+      href="tel:+48618516795"
+    >
+      61 851 67 95
+    </a>
+
+    <a
+      class="contact-button"
+      href="tel:+48618516795"
+    >
+      📞 ZADZWOŃ
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <strong>
+      U Przyjaciół — Kawiarnia • Klub • Teatr
+    </strong>
+
+    <br>
+
+    Mielżyńskiego 27 lok. 29, Poznań
+
+    <br><br>
+
+    © 2026 — Demo strony internetowej
+
+  </footer>
+
+</body>
+</html>
